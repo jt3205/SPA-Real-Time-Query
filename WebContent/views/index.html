@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript">
+	function update() {
+		$.ajax({
+			type : "GET",
+			url : "rtq.jsp",
+			dataType : "text",
+			error : function() {
+				alert('통신실패!!');
+			},
+			success : function(data) {
+				$("#rankBox").html(data);
+			}
+		});
+	};
+</script>
+<title>SPA 실시간 검색어</title>
+</head>
+<body>
+	<div id="rankBox">
+	
+	</div>
+	<button id="getRankBt" onclick="update()">실시간 검색어 확인</button>
+	<input value="새로고침 테스트">
+</body>
+</html>
